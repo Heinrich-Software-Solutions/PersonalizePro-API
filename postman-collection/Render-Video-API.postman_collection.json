@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "c421ff4e-7c6c-4b14-b316-32af3c83880b",
+		"name": "Render-Video-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21558496"
+	},
+	"item": [
+		{
+			"name": "Job-Handling",
+			"item": [
+				{
+					"name": "Create Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"webhook\": {\r\n        \"url\": \"URL_WHERE_TO_SEND_AFTER_RENDERING\",\r\n        \"secret\": \"BEARER_TOKEN_IF_REQUIRED\"\r\n    },\r\n    \"creation_data\": {\r\n        \"image_1\": \"64c4466cef34a47228f27c9d\",\r\n        \"image_2\": \"64c4466cef34a47228f27c9d\",\r\n        \"audio_name\": \"64c46b64ef34a47228f27cb0\",\r\n        \"audio_age\": \"64c46b74ef34a47228f27cb2\",\r\n        \"audio_hobby\": \"64c46b88ef34a47228f27cb4\",\r\n        \"audio_behavior\": \"64c46b9aef34a47228f27cb6\",\r\n        \"audio_advice\": \"64c46bbbef34a47228f27cb8\"\r\n    },\r\n    \"scenario_id\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/job",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/job/239712945b3aa77c6f2d237b38625ac632db3b18",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job",
+								"239712945b3aa77c6f2d237b38625ac632db3b18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Media",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/job/export/239712945b3aa77c6f2d237b38625ac632db3b18",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job",
+								"export",
+								"239712945b3aa77c6f2d237b38625ac632db3b18"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audio-Handling",
+			"item": [
+				{
+					"name": "Create Audio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "lang",
+									"value": "en",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "name",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Peter",
+									"type": "text"
+								},
+								{
+									"key": "audio",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/audio",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"audio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Audio By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/audio/64c46a8def34a47228f27caa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"audio",
+								"64c46a8def34a47228f27caa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Audio By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/audio/64c445e8ef34a47228f27c95",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"audio",
+								"64c445e8ef34a47228f27c95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Audios By Language And Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/audio/en/names",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"audio",
+								"en",
+								"names"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image-Handling",
+			"item": [
+				{
+					"name": "Create Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/image/64c4466cef34a47228f27c9d",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"64c4466cef34a47228f27c9d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Audio By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/image/64c445e8ef34a47228f27c95",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"64c445e8ef34a47228f27c95"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scenario-Handling",
+			"item": [
+				{
+					"name": "Get Scenario By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/scenario/12345",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"scenario",
+								"12345"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scenario By Language & Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/scenario/de/videofilm",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"scenario",
+								"de",
+								"videofilm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
